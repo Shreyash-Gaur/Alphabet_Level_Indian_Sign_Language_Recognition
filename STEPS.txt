@@ -1,0 +1,31 @@
+CREATE TF RECords for test and train
+
+cd C:\Users\shrey\Documents\TensorFlow\scripts\preprocessing  
+
+For TEST
+python generate_tfrecord.py -x C:/Users/shrey/Documents/TensorFlow/WorkspaceCNN/project2/images/test -l C:/Users/shrey/Documents/TensorFlow/WorkspaceCNN/project2/annotations/label_map.pbtxt -o C:/Users/shrey/Documents/TensorFlow/WorkspaceCNN/project2/annotations/test.record
+
+
+FOR TRAIN
+python generate_tfrecord.py -x C:/Users/shrey/Documents/TensorFlow/WorkspaceCNN/project2/images/train -l C:/Users/shrey/Documents/TensorFlow/WorkspaceCNN/project2/annotations/label_map.pbtxt -o C:/Users/shrey/Documents/TensorFlow/WorkspaceCNN/project2/annotations/train.record
+
+
+Config the model as per your Training - pipeline.config
+
+SET PATH IN pipeline.config
+
+label map path - C:\\Users\\shrey\\Documents\\TensorFlow\\WorkspaceCNN\\project2\\annotations\\label_map.pbtxt
+
+train input path - C:\\Users\\shrey\\Documents\\TensorFlow\\WorkspaceCNN\\project2\\annotations\\train.record
+
+eval input path - C:\\Users\\shrey\\Documents\\TensorFlow\\WorkspaceCNN\\project2\\annotations\\test.record
+
+checkpoint - C:\\Users\\shrey\\Documents\\TensorFlow\\WorkspaceCNN\\project2\\pre-trained-models\\
+
+Run the model for trainig
+
+cd C:\Users\shrey\Documents\TensorFlow\WorkspaceCNN\project2
+
+python model_main_tf2.py --model_dir=models/my_resnet --pipeline_config_path=models/my_resnet/pipeline.config
+
+
